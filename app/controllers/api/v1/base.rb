@@ -6,6 +6,7 @@ module API
       prefix :api
 
       mount Users::Base
+      mount Computers::Base
     end
   end
 end

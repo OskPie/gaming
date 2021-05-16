@@ -4,7 +4,7 @@ module API
   module V1
     module Users
       class Index < API::V1::Users::Base
-        desc 'Return an list of all Users'
+        desc 'Return a list of all Users'
 
         get do
           user = User.all

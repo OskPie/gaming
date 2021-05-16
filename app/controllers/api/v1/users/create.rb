@@ -5,6 +5,7 @@ module API
     module Users
       class Create < API::V1::Users::Base
         desc 'Create an user'
+        
         params do
           requires :email, type: String, desc: 'Email address'
           optional :first_name, type: String, desc: 'First name'

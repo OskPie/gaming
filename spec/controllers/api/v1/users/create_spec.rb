@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe API::V1::Users::Create, type: :request do
   describe 'POST /api/v1/users' do
     subject { post "/api/v1/users", params: { email: email } }
-                  
+
     context 'when email is valid and creates an user' do
       let(:email) { 'valid@email.com' }
 
