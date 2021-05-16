@@ -10,12 +10,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry', '~> 0.13.1'
+  gem 'factory_bot', '~> 6.2'
+  gem 'faker', '~> 2.18'
 end
 
 group :test do
   gem 'rspec-rails', '~> 5.0.0'
-  gem 'factory_bot', '~> 6.2'
-  gem 'faker', '~> 2.18'
   gem 'database_cleaner-active_record'
   gem 'shoulda-matchers', '~> 4.0'
 end
