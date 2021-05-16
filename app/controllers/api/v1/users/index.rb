@@ -7,8 +7,8 @@ module API
         desc 'Return a list of all Users'
 
         get do
-          user = User.all
-          render user
+          users = User.all
+          render users
         end
       end
     end

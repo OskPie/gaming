@@ -2,10 +2,11 @@ require 'rails_helper'
 
 RSpec.describe API::V1::Computers::Create, type: :request do
   describe 'POST /api/v1/computers' do
-    subject { post "/api/v1/computers", params: { name: name } }
+    subject { post "/api/v1/computers", params: { name: name, game_progress: game_progress } }
 
-    context 'when email is valid and creates computers' do
+    context 'when name is valid and creates computer' do
       let(:name) { 'valid' }
+      let(:game_progress) { 10.00 }
 
       it 'returns 201 status' do
         subject
@@ -20,6 +21,7 @@ RSpec.describe API::V1::Computers::Create, type: :request do
 
     context 'when name is empty and does not create computer' do
       let(:name) { nil }
+      let(:game_progress) { nil }
 
       it 'returns 422 status' do
         subject
