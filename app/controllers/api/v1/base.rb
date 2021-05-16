@@ -7,6 +7,7 @@ module API
 
       mount Users::Base
       mount Computers::Base
+      mount Games::Base
     end
   end
 end

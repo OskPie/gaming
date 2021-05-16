@@ -7,8 +7,8 @@ module API
         desc 'Return a list of all Computers'
 
         get do
-          computer = Computer.all
-          render computer
+          computers = Computer.all
+          render computers
         end
       end
     end

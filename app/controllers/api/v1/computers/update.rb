@@ -5,7 +5,7 @@ module API
     module Computers
       class Update < API::V1::Computers::Base
         desc 'Update a computer'
-        
+
         params do
           optional :name, type: String, desc: 'Name'
         end
