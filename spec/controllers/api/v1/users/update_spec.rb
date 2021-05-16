@@ -6,7 +6,7 @@ RSpec.describe API::V1::Users::Update, type: :request do
 
     let(:user) { create(:user) }
 
-    context 'when email is valid and creates an user' do
+    context 'when email is valid and updates the user' do
       let(:email) { 'valid@email.com' }
       let(:id) { user.id }
 
@@ -21,14 +21,14 @@ RSpec.describe API::V1::Users::Update, type: :request do
       end
     end
 
-    context 'when email is invalid and does not create an user' do
+    context 'when email is invalid and does not update the user' do
       let(:email) { 'invalid_email' }
       let(:id) { user.id }
 
       it 'returns 422 status' do
         subject
         expect(JSON.parse(response.body)['status']).to eq(422)
-      end 
+      end
 
       it 'returns validation message' do
         subject
@@ -36,7 +36,7 @@ RSpec.describe API::V1::Users::Update, type: :request do
       end
     end
 
-    context 'when email is empty and does not create an user' do
+    context 'when email is empty and does not update the user' do
       let(:email) { nil }
       let(:id) { user.id }
 

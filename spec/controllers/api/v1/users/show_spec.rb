@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe API::V1::Users::Show, type: :request do
   describe 'GET /api/v1/users/:id' do
     subject { get "/api/v1/users/#{id}" }
-                  
+
     let(:user) { create(:user) }
 
     context 'when user exist' do

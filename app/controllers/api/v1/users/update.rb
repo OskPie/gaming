@@ -5,6 +5,7 @@ module API
     module Users
       class Update < API::V1::Users::Base
         desc 'Update an user'
+        
         params do
           optional :email, type: String, desc: 'Email address'
           optional :first_name, type: String, desc: 'First name'
