@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_16_205038) do
+ActiveRecord::Schema.define(version: 2021_05_17_142339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2021_05_16_205038) do
     t.uuid "uuid", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_computers_on_user_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -27,6 +29,19 @@ ActiveRecord::Schema.define(version: 2021_05_16_205038) do
     t.decimal "game_progress", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "machine_games", force: :cascade do |t|
+    t.bigint "game_id"
+    t.bigint "computer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["computer_id"], name: "index_machine_games_on_computer_id"
+    t.index ["game_id"], name: "index_machine_games_on_game_id"
+    t.index ["user_id"], name: "index_machine_games_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +52,9 @@ ActiveRecord::Schema.define(version: 2021_05_16_205038) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "computers", "users"
+  add_foreign_key "games", "users"
+  add_foreign_key "machine_games", "computers"
+  add_foreign_key "machine_games", "games"
+  add_foreign_key "machine_games", "users"
 end

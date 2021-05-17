@@ -12,7 +12,7 @@ module API
 
         get do
           user = User.find(params[:id])
-          render user
+          render user.decorate
         end
       end
     end
