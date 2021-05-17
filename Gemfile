@@ -10,6 +10,7 @@ gem 'grape'
 gem 'grape_on_rails_routes'
 gem 'grape-jsonapi-resources'
 gem 'jsonapi-resources'
+gem 'draper'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
