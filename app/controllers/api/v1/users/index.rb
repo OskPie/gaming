@@ -7,7 +7,7 @@ module API
         desc 'Return a list of all Users'
 
         get do
-          users = User.all
+          users = User.all.decorate
           render users
         end
       end

@@ -9,6 +9,7 @@ module API
           route_param :id do
             mount Users::Show
             mount Users::Update
+            mount Users::MachineGames::Base
           end
         end
       end
